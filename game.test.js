@@ -26,3 +26,11 @@ test('should correct set initial live cells when populated', () => {
   expect(game.grid[3][3]).toBe(true)
   expect(game.getLiveNumberOfCells()).toBe(3)
 })
+
+test('should correct count the live neighbour of a cell', () => {
+  const game = new Game(5, [{x:1, y:1}, {x:2,y:2}, {x:3,y:3}])
+  const liveNeighbours1x1 = game.countLiveNeighbours(1, 1)
+  expect(liveNeighbours1x1).toBe(1)
+  const liveNeighbours2x2 = game.countLiveNeighbours(2,2)
+  expect(liveNeighbours2x2).toBe(2)
+})
