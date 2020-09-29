@@ -20,5 +20,9 @@ test('should create an initial empty grid of the correct size', () => {
 
 test('should correct set initial live cells when populated', () => {
   const game = new Game(5, [{x:1, y:1}, {x:2,y:2}, {x:3,y:3}])
+  expect(game.grid[0][0]).toBe(undefined)
+  expect(game.grid[1][1]).toBe(true)
+  expect(game.grid[2][2]).toBe(true)
+  expect(game.grid[3][3]).toBe(true)
   expect(game.getLiveNumberOfCells()).toBe(3)
 })
