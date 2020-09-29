@@ -19,9 +19,31 @@ class Game {
       return grid
     }
 
+    countLiveNeighbours(x, y) {
+      let alive = 0
+      //top left
+      if( x > 0 && y > 0 && this.grid[x - 1][y - 1] ) alive += 1
+      //top middle
+      if( y > 0 && this.grid[x][y - 1] ) alive += 1
+      //top right
+      if( x < this.grid.length && y > 0 && this.grid[x + 1][y - 1] ) alive += 1
+      //middle left
+      if( x > 0 && this.grid[x - 1][y] ) alive += 1
+      //middle right
+      if( x < this.grid.length && this.grid[x + 1][y] ) alive += 1
+      //bottom left
+      if( x > 0 && y < this.grid.length && this.grid[x - 1][y + 1] ) alive += 1
+      //bottom middle
+      if( y < this.grid.length && this.grid[x][y + 1] ) alive += 1
+      //bottom right
+      if( x < this.grid.length && y < this.grid.length && this.grid[x + 1][y + 1] ) alive += 1
+      return alive
+    }
+
     getLiveNumberOfCells() {
         return this.gameCoords.length;
     }
+
     nextRond() {
         return new Game();
     }
